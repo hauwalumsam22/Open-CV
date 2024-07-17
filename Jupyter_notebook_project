@@ -1,0 +1,43 @@
+import numpy as np
+import panda as pd
+import matplotliib.pyplot as plt
+import seaborn as sb
+
+df = pd.read_csv("all_recs.csv",encodings="unicode_escape")
+
+df.head()
+
+df.tail()
+
+df.info()
+
+df.describe()
+
+year_order = df['Year'].value_counts().index
+location_order = df['Location'].value_counts().index
+motive_order = df['Motive'].value_counts().index
+industry_order = df['Industry'].value_counts().index
+
+base_color = sb.color_palette()[2]
+year_order = df['Year'].value_counts().index
+location_order = df['Location'].value_counts().index
+motive_order = df['Motive'].value_counts().index
+industry_order = df['Industry']
+
+plt.figure(figsize=(20,8))
+plt.title("Attack Frequency by the year")
+sb.countplot(data=df,y='Year',color=base_color,order=year_order)
+plt.xticks(rotation=45);
+
+plt.figure(figsize=(10,6))
+plt.title("Attack by Industry)
+sb.countplot(data=df,y='Industry',color=base_color,order=industry_order)
+plt.xticks(rotaion=15)
+
+plt.figure(figsize=(20,8))
+plt.title
+
+plt.figure(figsize=(20,8))
+plt.title("Attack Frequency by the year")
+sb.countplot(data=df,y='Motive',color=base_color,order=year_order)
+plt.xticks(rotation=45);
